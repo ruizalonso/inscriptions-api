@@ -30,7 +30,6 @@ exports.error = (req, res, error, status, details) => {
 };
 
 exports.parser = (obj) => {
-  console.log(obj);
   const res = obj.recordset[0].Result;
   if (!res.includes('{')) {
     return res;

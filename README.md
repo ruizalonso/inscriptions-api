@@ -10,7 +10,7 @@ Incripciones a Concursos
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/ruizalonso/inscriptions-api.git
 ```
 
 Install dependencies
