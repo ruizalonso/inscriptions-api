@@ -4,9 +4,11 @@ const router = express.Router();
 const controller = require('./controller');
 
 router.post('/', (req, res) => {
+  console.log(req.user.id);
   controller
     .getUsers(req, res, 'spUsers')
     .then((messageList) => {
+      delete messageList.Contrasena;
       response.success(req, res, messageList, 200);
     })
     .catch((err) => {

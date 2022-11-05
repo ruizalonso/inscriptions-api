@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+const boom = require('@hapi/boom');
+
 const statusMessages = {
   200: 'Done',
   201: 'Created',
@@ -23,16 +25,11 @@ exports.success = (req, res, message, status) => {
 
 exports.error = (req, res, error, status, details) => {
   console.error('[response error] ' + details);
-
   res.status(status || 500).send({
     error,
   });
 };
 
 exports.parser = (obj) => {
-  const res = obj.recordset[0].Result;
-  if (!res.includes('{')) {
-    return res;
-  }
-  return JSON.parse(res);
+  return JSON.parse(obj.Result)
 };
