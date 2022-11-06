@@ -2,7 +2,7 @@ const { Strategy } = require('passport-local');
 const controller = require('../../../components/user/controller');
 const bcrypt = require('bcrypt');
 const boom = require('@hapi/boom');
-
+//Estrategia para inicio de sesión y autenticación
 const LocalStrategy = new Strategy(
   {
     usernameField: 'IdCcms',
@@ -20,7 +20,6 @@ const LocalStrategy = new Strategy(
         if (!isMatch) {
           return done(boom.forbidden('Error de autenticación'), false);
         }
-
         return done(null, user);
       })
       .catch((err) => {

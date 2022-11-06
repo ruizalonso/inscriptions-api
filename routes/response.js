@@ -1,13 +1,4 @@
-/* eslint-disable no-console */
-const boom = require('@hapi/boom');
-
-const statusMessages = {
-  200: 'Done',
-  201: 'Created',
-  400: 'Invalid format',
-  500: 'Internal error',
-};
-
+//Respuestas para los request
 exports.success = (req, res, message, status) => {
   let statusCode = status;
   let body = message;
@@ -29,8 +20,7 @@ exports.error = (req, res, error, status, details) => {
     error,
   });
 };
-
+//Parser para el JSON proveniente de SQL Server
 exports.parser = (obj) => {
-  // console.log(obj);
   return JSON.parse(obj.Result)
 };

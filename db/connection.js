@@ -9,10 +9,10 @@ const sqlConfig = {
   server: config.db.server,
   options: {
     encrypt: true,
-    trustServerCertificate: true, // change to true for local dev / self-signed certs
+    trustServerCertificate: true,
   },
 };
-
+//Conexion a la base de datos
 const Conn = async () => {
   try {
     const pool = await sql.connect(sqlConfig);

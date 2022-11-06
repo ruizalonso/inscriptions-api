@@ -7,20 +7,17 @@ const app = express();
 const port = 3000;
 
 const options = {
-  // origin: (origin, cb) => {
-  //   if (enable.includes(origin) || !origin) {
-  //     cb(null, true);
-  //   } else {
-  //     cb(new Error('denied'));
-  //   }
-  // },
   origin: 'http://localhost:4200',
 };
 app.use(cors(options));
+//Metodo o estrategia de autenticación
 require('./utils/auth')
+
 app.use(express.json());
 router(app);
+//Manejo de errores
 app.use(boomErrorHandler);
+
 app.listen(port, () => {
   console.log(`App is running in http://localhost:${port}`);
 });
