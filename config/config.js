@@ -5,6 +5,7 @@ const config = {
   apiKey: process.env.API_KEY || '',
   port: process.env.PORT || 3000,
   jwtSecret: process.env.JWT_SECRET || '',
+  criptKey: process.env.CRYPT_KEY,
   db: {
     server: process.env.DB_SERVER || 'localhost',
     port: process.env.DB_PORT || 8081,

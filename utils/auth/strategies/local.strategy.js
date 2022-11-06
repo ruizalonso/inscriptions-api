@@ -12,16 +12,15 @@ const LocalStrategy = new Strategy(
     const userData = { Case: 1, IdCcms, Contrasena };
     controller
       .getUsers(userData, null, 'spUsers')
-      .then((user) => {
-        console.log('user', user);
+      .then(async (user) => {
         if (!user) {
-          return done(boom.notFound(), false);
+          return done(boom.notFound('Error de autenticación'), false);
         }
-        const isMatch = bcrypt.compare(Contrasena, user.Contrasena);
+        const isMatch = await bcrypt.compare(Contrasena, user.Contrasena);
         if (!isMatch) {
-          return done(boom.forbidden(), false);
+          return done(boom.forbidden('Error de autenticación'), false);
         }
-        delete user.Contrasena;
+
         return done(null, user);
       })
       .catch((err) => {

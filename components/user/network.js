@@ -4,7 +4,6 @@ const router = express.Router();
 const controller = require('./controller');
 
 router.post('/', (req, res) => {
-  console.log(req.user.id);
   controller
     .getUsers(req, res, 'spUsers')
     .then((messageList) => {

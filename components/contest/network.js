@@ -2,9 +2,8 @@ const express = require('express');
 const response = require('../../routes/response');
 const router = express.Router();
 const controller = require('./controller');
-const { checkRoles } = require('../../middlewares/checkRoles');
 
-router.post('/', checkRoles(1, 2), (req, res) => {
+router.post('/', (req, res) => {
   controller
     .setContests(req, res, 'spContests')
     .then((data) => {
@@ -16,7 +15,7 @@ router.post('/', checkRoles(1, 2), (req, res) => {
         res,
         `Error inesperado`,
         400,
-        err + 'desde spContests'
+        err + ' desde spContests'
       );
     });
 });

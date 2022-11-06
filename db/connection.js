@@ -1,6 +1,6 @@
-/* eslint-disable no-console */
 const config = require('../config/config');
 const sql = require('mssql');
+const boom = require('@hapi/boom')
 
 const sqlConfig = {
   user: config.db.user,
@@ -18,6 +18,7 @@ const Conn = async () => {
     const pool = await sql.connect(sqlConfig);
     return pool;
   } catch (err) {
+    boom.internal('Conection error')
     console.log('Pool Error', err);
   }
 };
