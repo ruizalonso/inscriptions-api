@@ -1,9 +1,8 @@
 
 # Concursos API
 
-Incripciones a Concursos
-
-
+Incripciones de colaboradores de una empresa a concursos realizados por esta misma. 
+API Rest desarrollada en Node.js y Cliente desarrollado en Angular 14 con Arquetectura Modelo Vista Controlador.
 
 ## Run Locally
 
