@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -15,7 +14,7 @@ const options = {
   //     cb(new Error('denied'));
   //   }
   // },
-  origin: '*',
+  origin: 'http://localhost:4200',
 };
 app.use(cors(options));
 require('./utils/auth')
@@ -23,6 +22,5 @@ app.use(express.json());
 router(app);
 app.use(boomErrorHandler);
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
   console.log(`App is running in http://localhost:${port}`);
 });

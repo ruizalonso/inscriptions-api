@@ -31,5 +31,6 @@ exports.error = (req, res, error, status, details) => {
 };
 
 exports.parser = (obj) => {
+  // console.log(obj);
   return JSON.parse(obj.Result)
 };
